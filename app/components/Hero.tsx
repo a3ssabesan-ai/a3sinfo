@@ -1,14 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-const stats = [
-  { value: "15+", label: "Years Fintech Experience" },
-  { value: "50+", label: "Products Launched" },
-  { value: "200M+", label: "Users Impacted" },
-  { value: "Series A→IPO", label: "Full Journey Support" },
-];
-
 const ticker = [
   "FINTECH",
   "PRODUCT",
@@ -20,162 +11,77 @@ const ticker = [
 ];
 
 export default function Hero() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-  const scrollToAbout = () => {
-    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden grid-bg"
+      className="relative pt-32 pb-0 lg:pt-48 lg:pb-0 overflow-hidden bg-slate-50"
     >
-      {/* Background orbs */}
-      <div
-        className="orb"
-        style={{
-          width: 600,
-          height: 600,
-          top: "-20%",
-          right: "-10%",
-          background: "rgba(79,195,247,0.1)",
-          filter: "blur(100px)",
-        }}
-      />
-      <div
-        className="orb"
-        style={{
-          width: 500,
-          height: 500,
-          bottom: "10%",
-          left: "-5%",
-          background: "rgba(124,77,255,0.1)",
-          filter: "blur(100px)",
-        }}
-      />
-
-      {/* Floating shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="animate-float absolute border border-[rgba(79,195,247,0.12)] rounded-lg"
-            style={{
-              width: 60 + i * 20,
-              height: 60 + i * 20,
-              top: `${10 + i * 13}%`,
-              left: `${5 + i * 15}%`,
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${5 + i}s`,
-              transform: `rotate(${i * 15}deg)`,
-            }}
-          />
-        ))}
+      {/* Soft blur orbs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden z-0">
+        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-blue-100 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute bottom-[10%] -right-[10%] w-[30%] h-[30%] bg-indigo-100 rounded-full blur-[100px] opacity-60" />
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
-        <div
-          className={`transition-all duration-1000 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center pb-20 lg:pb-32">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(79,195,247,0.3)] bg-[rgba(79,195,247,0.05)] mb-8">
-            <div className="w-2 h-2 rounded-full bg-[#4fc3f7] animate-pulse" />
-            <span className="text-[#4fc3f7] text-sm font-medium">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
               Expertise in Fintech &amp; SaaS
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
-            Scaling Innovation{" "}
-            <span className="gradient-text">from Series A</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight mb-6 leading-[1.1]">
+            Scaling Innovation from
             <br />
-            to{" "}
-            <span className="gradient-text">Public Market</span>
+            <span className="gradient-text">Series A to Public Market</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-[#8892b0] max-w-2xl mb-10 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
             A3S Consulting provides top-tier Product Management and IT
             Consulting. We specialize in hyper-growth startups and public
             enterprises looking to modernize their digital infrastructure.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <button
-              onClick={scrollToContact}
-              className="px-8 py-4 bg-gradient-to-r from-[#4fc3f7] to-[#7c4dff] text-white font-bold rounded-xl hover:opacity-90 transition-all hover:scale-105 shadow-lg shadow-[rgba(79,195,247,0.3)] text-base"
+              onClick={() =>
+                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all hover:-translate-y-1"
             >
               Start Your Consultation
             </button>
             <button
-              onClick={scrollToAbout}
-              className="px-8 py-4 border border-[rgba(79,195,247,0.3)] text-[#4fc3f7] font-bold rounded-xl hover:bg-[rgba(79,195,247,0.08)] transition-all hover:scale-105 text-base"
+              onClick={() =>
+                document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-800 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all hover:-translate-y-1"
             >
               Learn More
             </button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {stats.map((stat, i) => (
-              <div
-                key={i}
-                className="glass-card rounded-xl p-5 text-center transition-all hover:border-[rgba(79,195,247,0.4)] hover:scale-105"
-              >
-                <div className="text-2xl sm:text-3xl font-black gradient-text mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-xs text-[#8892b0] font-medium leading-tight">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
 
       {/* Ticker */}
-      <div className="relative z-10 mt-auto py-6 border-t border-[rgba(79,195,247,0.08)] overflow-hidden">
+      <div className="border-t border-slate-200 bg-white py-6 overflow-hidden">
         <div
           className="flex gap-12 items-center whitespace-nowrap"
-          style={{
-            animation: "ticker 20s linear infinite",
-          }}
+          style={{ animation: "ticker 20s linear infinite" }}
         >
           {[...ticker, ...ticker].map((word, i) => (
             <span
               key={i}
-              className="text-base font-bold tracking-widest uppercase text-[#8892b0] opacity-50"
+              className="text-sm font-bold tracking-widest uppercase text-slate-400"
             >
               {word}
             </span>
           ))}
         </div>
       </div>
-
-      {/* Ticker keyframes injected inline */}
-      <style>{`
-        @keyframes ticker {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
-
-      {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0f1e] to-transparent pointer-events-none" />
     </section>
   );
 }

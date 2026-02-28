@@ -3,282 +3,139 @@
 import { useState } from "react";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    stage: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
     setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div
-        className="orb"
-        style={{
-          width: 500,
-          height: 500,
-          bottom: "0%",
-          right: "-10%",
-          background: "rgba(79,195,247,0.07)",
-          filter: "blur(100px)",
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left — info */}
+    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Left */}
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(79,195,247,0.3)] bg-[rgba(79,195,247,0.05)] mb-6">
-              <span className="text-[#4fc3f7] text-sm font-medium">
-                Get in Touch
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.15] mb-6">
-              Ready to{" "}
-              <span className="gradient-text">Scale Your</span>{" "}
-              Fintech?
+            <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">
+              Contact Us
             </h2>
-
-            <p className="text-[#8892b0] text-lg mb-10 leading-relaxed">
-              Whether you&apos;re a Series A startup defining your product roadmap
-              or a public company navigating digital transformation, we&apos;re here
-              to help. Let&apos;s talk.
+            <p className="text-4xl font-bold text-slate-900 mb-6">
+              Let&apos;s Build the Future of Fintech Together
+            </p>
+            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
+              Whether you&apos;re a Series A startup looking for your first
+              product roadmap or a public company needing specialized IT
+              modernization, A3S Consulting is ready to partner with you.
             </p>
 
-            {/* Contact details */}
-            <div className="space-y-5 mb-10">
-              {[
-                {
-                  icon: "📧",
-                  label: "Email",
-                  value: "a3ssabesan@gmail.com",
-                  href: "mailto:a3ssabesan@gmail.com",
-                },
-                {
-                  icon: "🌍",
-                  label: "Coverage",
-                  value: "US · Europe · Asia",
-                  href: null,
-                },
-                {
-                  icon: "💼",
-                  label: "Model",
-                  value: "Remote-First, Embedded Consulting",
-                  href: null,
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-xl flex-shrink-0">
-                    {item.icon}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-slate-900">
+                    Email Address
                   </div>
-                  <div>
-                    <div className="text-[#8892b0] text-xs mb-0.5">{item.label}</div>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-white font-medium hover:text-[#4fc3f7] transition-colors"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <div className="text-white font-medium">{item.value}</div>
-                    )}
+                  <a
+                    href="mailto:a3ssabesan@gmail.com"
+                    className="text-blue-600 hover:underline"
+                  >
+                    a3ssabesan@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-slate-900">
+                    Global Presence
+                  </div>
+                  <div className="text-slate-600">
+                    Remote-First Strategy | Serving US, Europe &amp; Asia
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Trust signals */}
-            <div className="glass-card rounded-2xl p-6">
-              <h3 className="text-white font-bold mb-4 text-sm">
-                What to Expect
-              </h3>
-              <ul className="space-y-3">
-                {[
-                  "Response within 24 hours",
-                  "Free 30-minute strategy call",
-                  "No long-term commitments required",
-                  "NDA available upon request",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[#8892b0] text-sm">
-                    <span className="text-[#4fc3f7] font-bold">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              </div>
             </div>
           </div>
 
           {/* Right — form */}
-          <div>
+          <div className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100">
             {submitted ? (
-              <div className="glass-card rounded-3xl p-10 text-center h-full flex flex-col items-center justify-center min-h-[400px]">
-                <div className="text-5xl mb-6">🎯</div>
-                <h3 className="text-white font-black text-2xl mb-4">
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   Message Received!
                 </h3>
-                <p className="text-[#8892b0] text-base leading-relaxed mb-6 max-w-sm">
-                  Thank you for reaching out. Our team will review your message
-                  and get back to you within 24 hours with next steps.
+                <p className="text-slate-600">
+                  We&apos;ll get back to you within 24 business hours.
                 </p>
-                <button
-                  onClick={() => {
-                    setSubmitted(false);
-                    setForm({
-                      name: "",
-                      email: "",
-                      company: "",
-                      stage: "",
-                      message: "",
-                    });
-                  }}
-                  className="px-6 py-3 border border-[rgba(79,195,247,0.3)] text-[#4fc3f7] rounded-xl hover:bg-[rgba(79,195,247,0.08)] transition-colors text-sm font-medium"
-                >
-                  Send Another Message
-                </button>
               </div>
             ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="glass-card rounded-3xl p-8 space-y-5"
-              >
-                <h3 className="text-white font-bold text-lg mb-2">
-                  Tell Us About Your Company
-                </h3>
-
-                <div className="grid sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[#8892b0] text-xs font-medium mb-2">
-                      Full Name *
+                    <label className="block text-sm font-semibold text-slate-700 mb-1">
+                      Full Name
                     </label>
                     <input
                       type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
                       required
-                      placeholder="Jane Smith"
-                      className="w-full bg-[rgba(79,195,247,0.05)] border border-[rgba(79,195,247,0.15)] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a5568] focus:outline-none focus:border-[rgba(79,195,247,0.5)] transition-colors"
+                      placeholder="John Doe"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#8892b0] text-xs font-medium mb-2">
-                      Work Email *
+                    <label className="block text-sm font-semibold text-slate-700 mb-1">
+                      Email Address
                     </label>
                     <input
                       type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
                       required
-                      placeholder="jane@company.com"
-                      className="w-full bg-[rgba(79,195,247,0.05)] border border-[rgba(79,195,247,0.15)] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a5568] focus:outline-none focus:border-[rgba(79,195,247,0.5)] transition-colors"
+                      placeholder="john@company.com"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[#8892b0] text-xs font-medium mb-2">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={form.company}
-                    onChange={handleChange}
-                    placeholder="Acme Fintech Inc."
-                    className="w-full bg-[rgba(79,195,247,0.05)] border border-[rgba(79,195,247,0.15)] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a5568] focus:outline-none focus:border-[rgba(79,195,247,0.5)] transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#8892b0] text-xs font-medium mb-2">
-                    Company Stage
-                  </label>
-                  <select
-                    name="stage"
-                    value={form.stage}
-                    onChange={handleChange}
-                    className="w-full bg-[rgba(79,195,247,0.05)] border border-[rgba(79,195,247,0.15)] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[rgba(79,195,247,0.5)] transition-colors appearance-none"
-                  >
-                    <option value="" className="bg-[#0d1b2e]">
-                      Select your stage
-                    </option>
-                    <option value="series-a" className="bg-[#0d1b2e]">
-                      Series A
-                    </option>
-                    <option value="series-b" className="bg-[#0d1b2e]">
-                      Series B
-                    </option>
-                    <option value="series-c" className="bg-[#0d1b2e]">
-                      Series C+
-                    </option>
-                    <option value="pre-ipo" className="bg-[#0d1b2e]">
-                      Pre-IPO
-                    </option>
-                    <option value="public" className="bg-[#0d1b2e]">
-                      Public Company
-                    </option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[#8892b0] text-xs font-medium mb-2">
-                    How Can We Help? *
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">
+                    How can we help?
                   </label>
                   <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
                     rows={4}
-                    placeholder="Tell us about your current challenges and what you're trying to achieve..."
-                    className="w-full bg-[rgba(79,195,247,0.05)] border border-[rgba(79,195,247,0.15)] rounded-xl px-4 py-3 text-white text-sm placeholder-[#4a5568] focus:outline-none focus:border-[rgba(79,195,247,0.5)] transition-colors resize-none"
+                    required
+                    placeholder="Tell us about your project or growth challenges..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className={`w-full py-4 rounded-xl font-bold text-base transition-all ${
-                    loading
-                      ? "bg-[rgba(79,195,247,0.2)] text-[#8892b0] cursor-not-allowed"
-                      : "bg-gradient-to-r from-[#4fc3f7] to-[#7c4dff] text-white hover:opacity-90 hover:scale-[1.01] shadow-lg shadow-[rgba(79,195,247,0.2)]"
-                  }`}
+                  className="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition-all shadow-lg"
                 >
-                  {loading ? (
-                    <span className="flex items-center justify-center gap-3">
-                      <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
-                    </span>
-                  ) : (
-                    "Send Message →"
-                  )}
+                  Send Inquiry
                 </button>
-
-                <p className="text-[#8892b0] text-xs text-center">
-                  By submitting, you agree to our Privacy Policy. We never
-                  share your information.
-                </p>
               </form>
             )}
           </div>

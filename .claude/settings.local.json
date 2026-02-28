@@ -22,7 +22,9 @@
       "Bash(vercel --prod --yes)",
       "Bash(vercel --prod --yes --name a3s-consulting)",
       "Bash(npm install @google/genai)",
-      "Bash(/Users/sen/A3S/A3Sinfo/.env.local.example:*)"
+      "Bash(/Users/sen/A3S/A3Sinfo/.env.local.example:*)",
+      "Bash(git push origin main)",
+      "Bash(vercel env ls)"
     ]
   }
 }
