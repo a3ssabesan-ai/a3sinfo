@@ -12,7 +12,17 @@
       "Bash(gh auth status)",
       "Bash(git --version)",
       "Bash(git add -A)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(brew install gh)",
+      "Bash(npx vercel --version)",
+      "Bash(vercel whoami)",
+      "Bash(gh auth login --hostname github.com --git-protocol https --web)",
+      "Bash(gh repo create a3ssabesan-ai/a3sinfo --public --description \"A3S Consulting and Business Services website\" --source . --remote origin --push)",
+      "Bash(vercel --version)",
+      "Bash(vercel --prod --yes)",
+      "Bash(vercel --prod --yes --name a3s-consulting)",
+      "Bash(npm install @google/genai)",
+      "Bash(/Users/sen/A3S/A3Sinfo/.env.local.example:*)"
     ]
   }
 }

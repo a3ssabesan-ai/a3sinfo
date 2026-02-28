@@ -70,8 +70,8 @@ export default function Contact() {
                 {
                   icon: "📧",
                   label: "Email",
-                  value: "a3ssabesar@gmail.com",
-                  href: "mailto:a3ssabesar@gmail.com",
+                  value: "a3ssabesan@gmail.com",
+                  href: "mailto:a3ssabesan@gmail.com",
                 },
                 {
                   icon: "🌍",

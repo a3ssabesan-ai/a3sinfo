@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "digital transformation",
     "compliance",
   ],
+  verification: {
+    google: "-ixtQC2THuXCqZoMN4NCL4EkKOubW4ykG2jSfpfWldo",
+  },
   openGraph: {
     title: "A3S Consulting and Business Services",
     description:

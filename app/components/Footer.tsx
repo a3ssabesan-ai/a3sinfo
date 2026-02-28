@@ -61,10 +61,10 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="mailto:a3ssabesar@gmail.com"
+                  href="mailto:a3ssabesan@gmail.com"
                   className="text-[#8892b0] hover:text-[#4fc3f7] text-xs transition-colors"
                 >
-                  a3ssabesar@gmail.com
+                  a3ssabesan@gmail.com
                 </a>
               </li>
               <li className="text-[#8892b0] text-xs">Remote-First</li>
